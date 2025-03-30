@@ -2,7 +2,7 @@ const houseImg = "/assets/images/houseimg.svg";
 
 const Inicio = () => {
   return (
-    <div className="xl:flex  pt-16">
+    <div className="xl:flex justify-between pt-16">
       <div className="xl:w-3/6 flex justify-center">
         <div className="w-10/12 ">
           <div>
@@ -18,16 +18,16 @@ const Inicio = () => {
               becas, cursos y programas adaptados a tus intereses y necesidades.
             </p>
           </div>
-          <div className="flex py-10 gap-4">
-            <button className=" bg-[#FAA307] w-3/6 xl:py-1 rounded-lg">Contactános</button>
-            <p className="text-xl content-center">o</p>
+          <div className="flex items-center py-10 gap-4">
+            <button className=" bg-[#FAA307] w-3/6 xl:py-1 rounded-lg h-16">Contáctanos</button>
+            <p className="text-xl content-center ">o</p>
             <a href="*" className="underline">
-              conoce sobre <hr /> nosotros
+              conoce sobre nosotros
             </a>
           </div>
         </div>
       </div>
-      <div className="xl:w-3/6 flex justify-center ">
+      <div className="xl:w-2/6 flex justify-center ">
         <img className="w-4/6" src={houseImg} alt="house" />
       </div>
     </div>

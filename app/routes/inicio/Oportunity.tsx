@@ -1,5 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Pagination } from "swiper/modules";
+import { FreeMode, Pagination, Navigation } from "swiper/modules"; // Importamos Navigation
 import { useState, useEffect } from "react";
 import { slider } from "../../utils/mock/slideInicioMock";
 import { OportunityInterface } from "~/types/interface/Oportunity_Interface";
@@ -8,6 +8,7 @@ import { OportunityInterface } from "~/types/interface/Oportunity_Interface";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
+import "swiper/css/navigation"; // Importamos los estilos de navegación
 
 export const Oportunity = () => {
   const [dataApi, setDataApi] = useState<OportunityInterface[]>([]);
@@ -15,44 +16,52 @@ export const Oportunity = () => {
   useEffect(() => {
     setDataApi(slider);
     console.log(dataApi);
-  }, [dataApi]);
+  }, []);
 
   return (
     <div id="oportunidades">
       <h2 className="text-center text-[#1D1856] text-3xl font-bold pt-14 pb-10">
-        ¡Mira estás oportunidades!{" "}
+        ¡Mira estas oportunidades!
       </h2>
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        freeMode={true}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[FreeMode, Pagination]}
-        className="h-full w-11/12"
-        breakpoints={{
-          320: { slidesPerView: 1, spaceBetween: 10 }, 
-          640: { slidesPerView: 2, spaceBetween: 20 }, 
-          1024: { slidesPerView: 3, spaceBetween: 30 }, 
-        }}
-      >
-        {dataApi.map((data) => (
-          <SwiperSlide key={data.id}>
-            <div>
-              <img
-                className="pb-10 w-[25rem]"
-                src={data.image}
-                alt={data.title}
-              />
-              <div className="space-y-4 pb-14">
-                <h3>{data.title}</h3>
-                <p>{data.description}</p>
-              </div>
-            </div>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+
+      <div className="relative w-full flex justify-center">
+        {/* Flechas de navegación */}
+        <button className="swiper-button-prev absolute left-0 z-10 bg-white p-2 rounded-full shadow-md">
+          ❮
+        </button>
+        <button className="swiper-button-next absolute right-0 z-10 bg-white p-2 rounded-full shadow-md">
+          ❯
+        </button>
+
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          freeMode={true}
+          pagination={{ clickable: true }}
+          navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }} // Activamos navegación
+          modules={[FreeMode, Pagination, Navigation]}
+          className="h-full w-11/12"
+          breakpoints={{
+            320: { slidesPerView: 1, spaceBetween: 10 },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 30 },
+          }}
+        >
+          {dataApi.map((data) => (
+<SwiperSlide key={data.id}>
+  <div className="border border-gray-300 rounded-lg p-4 transition-transform duration-300 hover:scale-105 hover:shadow-lg flex flex-col items-center">
+    <img className="w-[80%] h-48 object-cover rounded-md" src={data.image} alt={data.title} />
+    <div className="space-y-4 pb-4 text-center">
+      <h3 className="text-lg font-semibold text-[#1D1856]">{data.title}</h3>
+      <p className="text-gray-600">{data.description}</p>
+    </div>
+  </div>
+</SwiperSlide>
+
+
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };
