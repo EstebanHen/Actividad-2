@@ -5,7 +5,7 @@ import { Services } from "./Services";
 import LoadingComponent from "~/components/Loading.component";
 import DonationPage from './DonationPage';
 import WhatsAppSupport from 'app/components/WhatsAppSupport';
-
+import Donation from 'app/components/Donation';
 
 export default function inicioLayout() {
   return (
@@ -17,6 +17,7 @@ export default function inicioLayout() {
         <Services />
         <WhatsAppSupport />
         <DonationPage />
+        <Donation />
       </Suspense>
     </div>
   );
