@@ -1,10 +1,8 @@
 
 const WhatsAppSupport = () => {
-    
-    const phoneNumber = "1234567890";
+
+    const phoneNumber = "3173831481";
     const message = "¡Hola! Necesito soporte y asesoramiento.";
-  
-    // Enlace para abrir WhatsApp
     const whatsAppLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
   
     return (

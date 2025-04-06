@@ -1,3 +1,27 @@
+# Antivirus para la Deserción
+
+## Introduction
+This project is a web platform designed to support students and entrepreneurs by providing access to scholarships, courses, and programs tailored to their needs. It aims to help users explore and apply to relevant opportunities with ease.
+
+## Technologies Used
+- **Frontend**: React, TypeScript, Tailwind CSS
+- **Backend**: Node.js, Express.js (or other relevant backend technology)
+- **Database**: MySQL (or other relevant database technology)
+- **Other Libraries**: Swiper (for carousels), Axios (for API requests), and more.
+
+## Features Implemented
+- **User Registration and Login**: Allows users to create accounts and log in to their profiles.
+- **Opportunities**: Displays a list of available opportunities with detailed descriptions.
+- **Services**: Information about available services like mentorship and professional support.
+- **Contact Us**: Form for users to contact the platform for any inquiries.
+- **Donation**: Allows users to make one-time or monthly donations.
+- **WhatsApp Chat**: Direct integration with WhatsApp for real-time support and assistance.
+
+### Prerequisites
+Make sure you have the following installed:
+- [Node.js](https://nodejs.org/) (version 14 or later)
+- [MySQL](https://www.mysql.com/) (or your preferred database)
+
 # Welcome to Remix!
 
 - 📖 [Remix docs](https://remix.run/docs)
