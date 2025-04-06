@@ -7,7 +7,7 @@ export default function ForgotPasswordForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Aquí podrías llamar a tu API para manejar la solicitud de recuperación
+ 
     console.log("Solicitud enviada para:", email);
     setSubmitted(true);
   };

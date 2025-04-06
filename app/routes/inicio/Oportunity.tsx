@@ -1,21 +1,21 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { FreeMode, Pagination, Navigation } from "swiper/modules"; // Importamos Navigation
-import { useState, useEffect } from "react";
-import { slider } from "../../utils/mock/slideInicioMock";
-import { OportunityInterface } from "~/types/interface/Oportunity_Interface";
+// Oportunity.tsx
 
-// Import Swiper styles
+import { useState, useEffect } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FreeMode, Pagination, Navigation } from "swiper/modules"; 
+import { Link } from "react-router-dom";  // Importamos Link para redirigir
+import { slider } from "../../utils/mock/slideInicioMock";  // Datos de las oportunidades
+
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
-import "swiper/css/navigation"; // Importamos los estilos de navegación
+import "swiper/css/navigation";
 
 export const Oportunity = () => {
-  const [dataApi, setDataApi] = useState<OportunityInterface[]>([]);
+  const [dataApi, setDataApi] = useState<any[]>([]);
 
   useEffect(() => {
-    setDataApi(slider);
-    console.log(dataApi);
+    setDataApi(slider); // Asignamos los datos de las oportunidades
   }, []);
 
   return (
@@ -38,7 +38,7 @@ export const Oportunity = () => {
           spaceBetween={30}
           freeMode={true}
           pagination={{ clickable: true }}
-          navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }} // Activamos navegación
+          navigation={{ nextEl: ".swiper-button-next", prevEl: ".swiper-button-prev" }}
           modules={[FreeMode, Pagination, Navigation]}
           className="h-full w-11/12"
           breakpoints={{
@@ -48,17 +48,21 @@ export const Oportunity = () => {
           }}
         >
           {dataApi.map((data) => (
-<SwiperSlide key={data.id}>
-  <div className="border border-gray-300 rounded-lg p-4 transition-transform duration-300 hover:scale-105 hover:shadow-lg flex flex-col items-center">
-    <img className="w-[80%] h-48 object-cover rounded-md" src={data.image} alt={data.title} />
-    <div className="space-y-4 pb-4 text-center">
-      <h3 className="text-lg font-semibold text-[#1D1856]">{data.title}</h3>
-      <p className="text-gray-600">{data.description}</p>
-    </div>
-  </div>
-</SwiperSlide>
-
-
+            <SwiperSlide key={data.id}>
+              <div className="border border-gray-300 rounded-lg p-4 transition-transform duration-300 hover:scale-105 hover:shadow-lg flex flex-col items-center">
+                <img className="w-[80%] h-48 object-cover rounded-md" src={data.image} alt={data.title} />
+                <div className="space-y-4 pb-4 text-center">
+                  <h3 className="text-lg font-semibold text-[#1D1856]">{data.title}</h3>
+                  <p className="text-gray-600">{data.description}</p>
+                  <Link 
+                    to={`/opportunity-details?id=${data.id}`} // Redirige al componente con los detalles
+                    className="bg-[#FAA307] text-white px-4 py-2 rounded-lg mt-4"
+                  >
+                    Más Información
+                  </Link>
+                </div>
+              </div>
+            </SwiperSlide>
           ))}
         </Swiper>
       </div>
