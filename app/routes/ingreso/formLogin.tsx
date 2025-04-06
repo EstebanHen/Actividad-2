@@ -56,7 +56,7 @@ export default function FormLogin() {
             <label htmlFor="checkbox">Recordarme</label>
           </div>
           <div>
-            <a href="*" className="text-[#FAA307]">
+            <a href="/olvide-contrasena" className="text-[#FAA307]">
               Olvide mi contraseña
             </a>
           </div>

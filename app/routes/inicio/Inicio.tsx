@@ -19,7 +19,11 @@ const Inicio = () => {
             </p>
           </div>
           <div className="flex items-center py-10 gap-4">
-            <button className=" bg-[#FAA307] w-3/6 xl:py-1 rounded-lg h-16">Contáctanos</button>
+          <button
+            onClick={() => (window.location.href = "/contacto")}
+            className="bg-[#FAA307] w-3/6 xl:py-1 rounded-lg h-16">
+            Contáctanos
+          </button>
             <p className="text-xl content-center ">o</p>
             <a href="*" className="underline">
               conoce sobre nosotros
